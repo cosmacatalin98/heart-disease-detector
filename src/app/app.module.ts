@@ -13,6 +13,10 @@ import { DoctorPanelComponent } from './doctor-panel/doctor-panel.component';
 import { ScientistPanelComponent } from './scientist-panel/scientist-panel.component';
 import { MedicalRecordService } from './medical-record.service';
 import { DiagnosisService } from './diagnosis.service';
+import { ModelParametersService } from "./model-parameters.service";
+import { TestTrainService } from './test-train.service';
+import { AccuracyService } from './accuracy.service';
+import { KFoldTrainService } from './k-fold-train.service';
 
 const appRoutes: Routes = [
       { path: "", component: LogInComponent},
@@ -30,6 +34,6 @@ const appRoutes: Routes = [
   ],
   declarations: [ AppComponent, TopBarComponent, LogInComponent, DoctorPanelComponent, ScientistPanelComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AuthGuardService, MedicalRecordService, DiagnosisService]
+  providers: [AuthGuardService, MedicalRecordService, DiagnosisService, ModelParametersService, TestTrainService, AccuracyService, KFoldTrainService]
 })
 export class AppModule { }
