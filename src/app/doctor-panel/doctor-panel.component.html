@@ -1,1 +1,123 @@
-<p>doctor-panel works!</p>
+<div id="d01">
+    <p id="p01"> Sunte-ți autentificat ca și cadru medical !</p>
+</div>
+
+<div id="d02">
+    <p> Introduceți datele medicale ale pacientului : </p>
+</div>
+
+<div id="d03">
+    <div id="d04">
+        <p> Vârstă </p>
+        <input id="in01" type="number" [formControl]="age">
+
+        <p> Sex </p>
+        <input id="in02" type="number" [formControl]="sex">
+        <p> Durere de piept </p>
+        <input id="in03" type="number" [formControl]="cpt">
+        <p> Presiunea sângelui </p>
+        <input id="in04" type="number" [formControl]="rbp">
+        <p> Ser cholesterol </p>
+        <input id="in05" type="number" [formControl]="sc">
+        <p> Nivel zahăr depășit </p>
+        <input id="in06" type="number" [formControl]="fbs">
+        <p> Rezultate electrocardiografice </p>
+        <input id="in07" type="number" [formControl]="rer">
+    </div>
+
+    <div id="d05">
+        <p> Ritmul cardiac maxim </p>
+        <input id="in08" type="number" [formControl]="mhra">
+        <p> Angină indusă de exercițiu </p>
+        <input id="in09" type="number" [formControl]="eia">
+        <p> ST</p>
+        <input id="in10" type="number" [formControl]="oldpeak">
+        <p> Panta segmentului ST </p>
+        <input id="in11" type="number" [formControl]="tsotpe">
+        <p> Vase colorate prin florosopie </p>
+        <input id="in12" type="number" [formControl]="nomv">
+        <p> Talasemie </p>
+        <input id="in13" type="number" [formControl]="thatl">
+        <p></p>
+        <button id="b01" (click)="processData()"> Procesează date </button>
+    </div>
+    <div id="d06">
+        <p> Erori </p>
+        <div id="erdiv">
+            <div *ngIf="age.invalid && (age.dirty || age.touched)">
+                <div *ngIf="age.errors.pattern">
+                    Valoarea câmpului "Vârstă" trebuie să fie cuprinsă în intervalul 0-99 !
+                </div>
+            </div>
+            <div *ngIf="sex.invalid && (sex.dirty || sex.touched)">
+                <div *ngIf="sex.errors.pattern">
+                    Valoarea câmpului "Sex" trebuie să aibă valoare 0 = femeiesc sau 1 = bărbătesc !
+                </div>
+            </div>
+            <div *ngIf="cpt.invalid && (cpt.dirty || cpt.touched)">
+                <div *ngIf="cpt.errors.pattern">
+                    Valoarea câmpului "Durere de piept" trebuie să aibă una dintre următoarele valori 0, 1, 2 sau 3 !
+                </div>
+            </div>
+            <div *ngIf="rbp.invalid && (rbp.dirty || rbp.touched)">
+                <div *ngIf="rbp.errors.pattern">
+                    Valoarea câmpului "Presiunea sângelui" trebuie să fie cuprinsă între 0-999 !
+                </div>
+            </div>
+            <div *ngIf="sc.invalid && (sc.dirty || sc.touched)">
+                <div *ngIf="sc.errors.pattern">
+                    Valoarea câmpului "Ser cholesterol" trebuie să fie cuprinsă între 0-999 !
+                </div>
+            </div>
+            <div *ngIf="fbs.invalid && (fbs.dirty || fbs.touched)">
+                <div *ngIf="fbs.errors.pattern">
+                    Valoarea câmpului "Nivel zahăr depășit" trebuie să aibă valoare 0 = nedepășit sau 1 = depășit !
+                </div>
+            </div>
+            <div *ngIf="rer.invalid && (rer.dirty || rer.touched)">
+                <div *ngIf="rer.errors.pattern">
+                    Valoarea câmpului "Rezultate electrocardiografice" trebuie să aibă una dintre următoarele valori
+                    0, 1, sau 2 !
+                </div>
+            </div>
+            <div *ngIf="mhra.invalid && (mhra.dirty || mhra.touched)">
+                <div *ngIf="mhra.errors.pattern">
+                    Valoarea câmpului "Ritmul cardiac maxim" trebuie să fie cuprinsă între 0-999 !
+                </div>
+            </div>
+            <div *ngIf="eia.invalid && (eia.dirty || eia.touched)">
+                <div *ngIf="eia.errors.pattern">
+                    Valoarea câmpului "Angină indusă de exercițiu" trebuie să aibă valoare 0 = fals sau 1 = adevărat !
+                </div>
+            </div>
+            <div *ngIf="oldpeak.invalid && (oldpeak.dirty || oldpeak.touched)">
+                <div *ngIf="oldpeak.errors.pattern">
+                    Valoarea câmpului "ST" trebuie să aibă valori cuprinse între 0.0 - 7.0 !
+                </div>
+            </div>
+            <div *ngIf="tsotpe.invalid && (tsotpe.dirty || tsotpe.touched)">
+                <div *ngIf="tsotpe.errors.pattern">
+                    Valoarea câmpului "Panta segmentului ST" trebuie să aibă una dintre următoarele valori
+                    0, 1, sau 2 !
+                </div>
+            </div>
+            <div *ngIf="nomv.invalid && (nomv.dirty || nomv.touched)">
+                <div *ngIf="nomv.errors.pattern">
+                    Valoarea câmpului "Vase colorate prin floroscopie" trebuie să aibă una dintre următoarele valorile
+                    0, 1, 2 sau 3 !
+                </div>
+            </div>
+            <div *ngIf="thatl.invalid && (thatl.dirty || thatl.touched)">
+                <div *ngIf="thatl.errors.pattern">
+                    Valoarea câmpului "Talasemie" trebuie să aibă una dintre următoarele valori
+                    0, 1, 2 sau 3 !
+                </div>
+            </div>
+        </div>
+        <button id="b02" (click)="getDiagnosisForMedicalRecord()"> Afișează diagnostic </button>
+        <p id="p02"> Diagnostic </p>
+        <input id="in14" type="text" [formControl]="res">
+        <p id="p03"> Acuratețe </p>
+        <input id="in15" type="text" [formControl]="acc">
+    </div>
+</div>
