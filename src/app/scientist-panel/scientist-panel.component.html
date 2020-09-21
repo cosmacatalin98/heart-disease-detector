@@ -1,46 +1,44 @@
 <div id="d01">
-    <p id="p01"> Sunte-ți autentificat ca și cercetător !</p>
+    <p id="p01"> You are logged in as a scientist !</p>
 </div>
 
 <div id="d02">
-    <p id="p02"> Modificați parametrii rețelei și creați un nou model : </p>
+    <p id="p02"> Create and train your own neurnal network : </p>
 </div>
 
 <div id="d03">
 
     <div id="d08">
-        <p id="p09">Creați un model nou cu următorii parametrii : </p>
-        <p id="p10">Numărul variabilelor de intrare : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p id="p09">Create a new model with the following parameters : </p>
+        <p id="p10">Number of input variables :
             <input id="in04" type="number" [formControl]="indim"> </p>
-        <p id="p11">Numărul variabilelor de ieșire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p id="p11">Number of output variables :
             <input id="in05" type="number" [formControl]="outdim"> </p>
-        <p id="p15">Funcția de activare a ultimului strat :
+        <p id="p15">Last layer activation function :
             <select [formControl]="lastafunction">
                 <option *ngFor="let fun of afunctions" [ngValue]="fun">{{ fun }}</option>
             </select>
         </p>
-        <p id="p15">Funcția de cost :
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p id="p15">Cost function :
             <select [formControl]="costfunction">
                 <option *ngFor="let cf of cfunctions" [ngValue]="cf">{{ cf }}</option>
             </select> </p>
-        <p id="p15">Algoritm de optimizare :
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p id="p15">Optimizer :
             <select [formControl]="optalg">
                 <option *ngFor="let opa of optalgs" [ngValue]="opa">{{ opa }}</option>
             </select> </p>
 
-        <p id="p15"> Straturi ascunse &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button id="b01" (click)="addRow()"> Adaugă strat </button>
-            <button id="b010" (click)="deleteRow()"> Șterge strat </button></p>
+        <p id="p15"> Hidden layers
+            <button id="b01" (click)="addRow()"> Add layer </button>
+            <button id="b010" (click)="deleteRow()"> Delete layer </button></p>
 
 
         <table>
             <thead>
                 <tr>
-                    <th> Strat </th>
-                    <th> Neuroni </th>
-                    <th> Functie de activate </th>
+                    <th> Layer </th>
+                    <th> Neurons </th>
+                    <th> Activation function </th>
                 </tr>
             </thead>
 
@@ -65,41 +63,42 @@
                 </tr>
             </tbody>
         </table>
-        <button id="b01" (click)="sendModelParameters()"> Creare model </button>
+        <button id="b01" (click)="sendModelParameters()"> Create model </button>
     </div>
 
     <div id="d04">
 
 
         <div id="d06">
-            <p> Antrenați modelul folosind una dintre metode: </p>
-            <p> Introduce-ți numărul de epoci și dimensiunea unui lot:</p>
-            <p> Epoci:<input id="in11" type="number" [formControl]="epochs"> Dimensiune lot:<input id="in11"
-                    type="number" [formControl]="batchsize"> </p>
+            <p> Train the model using one of the following methods : </p>
+            <p> Enter the number of epochs and the batch size :</p>
+            <p> Epochs:<input id="in11" type="number" [formControl]="epochs"> Batch size:<input id="in11" type="number"
+                    [formControl]="batchsize"> </p>
             <p id="p0111"> Train-Test Split</p>
-            <p id="p04"> Introduce-ti procentele pentru împărțirea setului de date :</p>
-            <p id="p06"> Date de test : <input id="in11" type="number" [formControl]="testper">
-                <button id="b05" (click)="sendTestPercentage()"> Antrenează modelul </button></p>
+            <p id="p04"> Enter the percentage for the data set split :</p>
+            <p id="p06"> Test data : <input id="in11" type="number" [formControl]="testper">
+                <button id="b05" (click)="sendTestPercentage()"> Train model </button></p>
 
         </div>
 
         <div id="d07">
             <p id="p0111"> K-Fold Cross Validation</p>
-            <p id="p07"> Introduceți numărul de părți la care va fi împărțit setul de date :</p>
-            <p id="p08"> K = <input id="in11" type="number" [formControl]="kfold"> părți
-                <button id="b05" (click)="sendKFold()"> Antrenează modelul </button></p>
+            <p id="p07">
+                Enter the number of parts to which the data set will be divided :</p>
+            <p id="p08"> K = <input id="in11" type="number" [formControl]="kfold"> parts
+                <button id="b05" (click)="sendKFold()"> Train model </button></p>
 
         </div>
 
-        <p> Acuratețea modelului : <input id="in11" type="number" [formControl]="acc">%
-            <button id="b05" (click)="setAccuracy()"> Afișează acuratețe</button></p>
+        <p> Model accuracy : <input id="in11" type="number" [formControl]="acc">%
+            <button id="b05" (click)="setAccuracy()"> Get model accuracy </button></p>
     </div>
     <div>
-        <p> Erori </p>
+        <p> Errors </p>
         <div id="erdiv">
             <div *ngIf="testper.invalid && (testper.dirty || testper.touched)">
                 <div *ngIf="testper.errors.pattern">
-                    Valoarea câmpului "Date de test" trebuie să aibă valori cuprinse în intervalul 0.1 - 0.9 !
+                    The value of the "Test data" field must be in the range 0.1 - 0.9!
                 </div>
             </div>
         </div>
