@@ -10,7 +10,7 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     switch (this.opt) {
       case 0: {
-        alert('Nume de utilizator sau parola incorecte !')
+        alert('Username or password is incorect !')
         this.router.navigate(['']);
         return false;
       }
