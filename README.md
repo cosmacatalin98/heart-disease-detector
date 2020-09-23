@@ -2,7 +2,7 @@
 
 HeartDet was created as a research project during my internship within [The Technical University of Cluj-Napoca, Faculty of Computer Science](https://www.utcluj.ro/en/). 
 
-The application's purpose is to detect the presence of a heart disease based on a patient's medical data by using a pretrained and preconfigured neural network, however it can also be used for creating and training your own neural network.
+The application's purpose is to detect the presence of a heart disease based on a patient's medical data by using a pre-trained and pre-configured neural network, however it can also be used for creating and training your own neural network.
 
 It's a web application built using [Angular](https://angular.io/) that runs a python script on the backend. 
 
@@ -28,6 +28,7 @@ Now you're ready to use it !
 ## Usage
 To access the application use [this link](https://heart-disease-detector.azurewebsites.net/).
 Once you open it you have two options : either sign in as a doctor and get a heart disease diagnosis based on a patient's medical record either you can access it as a scientist in which case you'll be able to create and train your own neural network.
+![alt text](https://github.com/cosmacatalin98/heart-disease-detector/blob/master/log_in_page.png)
 
 >In order to be able to use the application as a doctor you first need to sign in as a scientist and then create and train a neural network with the parameters presented in the Scientist section.
 
@@ -38,8 +39,8 @@ Sign in using the credentials :
 Password : pass123
 
 Once logged in you will be greeted by the page below :
-
-Here you can create and train your own neural network which is fully configurable.
+![alt text](https://github.com/cosmacatalin98/heart-disease-detector/blob/master/scientist_page.png)
+Here you can create and train your own neural network which is fully configurable. The configuration shown in the picture above is used to obtain a neural network that has a 99.99 % accuracy of prediction on new data.
 
 ### Doctor
 
@@ -48,7 +49,7 @@ Sign in using the credentials :
 Password : pass123
 
 Once logged in you will be greeted by the page below :
-
+![alt text](https://github.com/cosmacatalin98/heart-disease-detector/blob/master/doctor_page.png)
 Here you can enter a patient's medical record and receive a diagnosis based on it.
 
 ## Contributing
